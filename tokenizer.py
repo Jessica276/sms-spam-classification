@@ -21,6 +21,9 @@ def tokenize_and_pad(texts, dictionary, max_seq_len):
     return np.array(sequences)
 
 def prepare_datasets(X_train, X_test, y_train, y_test):
+    y_train = y_train.astype(float)  # ou int selon vos besoins
+    y_test = y_test.astype(float)    # ou int selon vos besoins
+
     dictionary = build_dict(X_train)
     max_seq_len = max(max(len(x.split()) for x in X_train), max(len(x.split()) for x in X_test))
 
@@ -29,11 +32,11 @@ def prepare_datasets(X_train, X_test, y_train, y_test):
 
     train_data = TensorDataset(
         torch.tensor(X_train_padded, dtype=torch.long),
-        torch.tensor(y_train.values, dtype=torch.float32)
+        torch.tensor(y_train.values, dtype=torch.float32)  # y_train compatible
     )
     test_data = TensorDataset(
         torch.tensor(X_test_padded, dtype=torch.long),
-        torch.tensor(y_test.values, dtype=torch.float32)
+        torch.tensor(y_test.values, dtype=torch.float32)   # y_test compatible
     )
 
     train_loader = DataLoader(train_data, batch_size=32, shuffle=True)
