@@ -1,7 +1,7 @@
 import pandas as pd
 from sklearn.model_selection import train_test_split
 
-def preprocess_data(data):
+def preprocessing(data):
     # Drop unnecessary columns
     data = data.drop(["Unnamed: 2", "Unnamed: 3", "Unnamed: 4"], axis=1)
     data.columns = ["label", "text"]
