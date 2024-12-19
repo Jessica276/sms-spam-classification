@@ -1,10 +1,9 @@
 import torch
-from load_data import load_data
-from preprocessing import preprocessing
-from tokenizer import build_dict, max_sequence, tokenize_and_pad, pad_data
-from train_lstm import train_lstm
-from lstm import LSTMClassifier
-from bert import train_bert
+# from load_data import load_data
+# from preprocessing import preprocessing
+# from train_lstm import train_lstm
+# from lstm import LSTMClassifier
+# from bert import train_bert
 
 def main():
     load_data()
