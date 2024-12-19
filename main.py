@@ -6,7 +6,6 @@ from lstm import LSTMClassifier
 from bert import train_bert
 
 def main():
-    load_data()
     y_train, y_test, X_train, X_test = preprocessing()
     dictionary = build_dict(X_train)
     max_seq_len = prepare_datasets(X_train, X_test, y_train, y_test)
