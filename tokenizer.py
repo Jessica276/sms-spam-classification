@@ -5,9 +5,13 @@ from torch.utils.data import TensorDataset, DataLoader
 def build_dict(texts):
     word_count = {}
     for text in texts:
+        if not isinstance(text, str): 
+            text = str(text)
         for word in text.split():
             word_count[word] = word_count.get(word, 0) + 1
+
     return {word: idx + 1 for idx, word in enumerate(word_count.keys())}
+
 
 def tokenize_and_pad(texts, dictionary, max_seq_len):
     sequences = []

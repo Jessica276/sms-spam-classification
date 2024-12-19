@@ -7,6 +7,8 @@ from tokenizer import build_dict, tokenize_and_pad, prepare_datasets
 
 def main():
     y_train, y_test, X_train, X_test = preprocessing()
+    X_train = X_train.astype(str)
+    X_test = X_test.astype(str)
     dictionary = build_dict(X_train)
     max_seq_len = prepare_datasets(X_train, X_test, y_train, y_test)
     train_loader, test_loader = tokenize_and_pad(X_train, dictionary, max_seq_len)
