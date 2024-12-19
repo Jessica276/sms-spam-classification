@@ -3,6 +3,7 @@ from preprocessing import preprocessing
 from train_lstm import train_lstm
 from lstm import LSTMClassifier
 from bert import train_bert
+from tokenizer import build_dict, tokenize_and_pad, prepare_datasets
 
 def main():
     y_train, y_test, X_train, X_test = preprocessing()
